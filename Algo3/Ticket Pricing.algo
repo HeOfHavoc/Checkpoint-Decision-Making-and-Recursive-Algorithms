@@ -1,0 +1,15 @@
+BEGIN
+    FUNCTION getTicketPrice(age)
+        IF (age <= 12) THEN
+            RETURN 10
+        ELSE IF (age >= 13 AND age <= 17) THEN
+            RETURN 15
+        ELSE
+            RETURN 20
+        END_IF
+    END_FUNCTION
+
+    // Example usage
+    age := 15
+    PRINT "Ticket price for age " + age + ": $" + getTicketPrice(age)
+END

@@ -1,0 +1,25 @@
+BEGIN
+    FUNCTION preprocess(s)
+        // Convert to lower case and remove non-alphanumeric characters
+        RETURN s TO LOWER_CASE AND REMOVE_NON_ALPHANUMERIC_CHARACTERS
+    END_FUNCTION
+
+    FUNCTION isPalindrome(s, start, end)
+        IF (start >= end) THEN
+            RETURN True
+        END_IF
+        IF (s[start] ≠ s[end]) THEN
+            RETURN False
+        END_IF
+        RETURN isPalindrome(s, start + 1, end - 1)
+    END_FUNCTION
+
+    FUNCTION checkIfPalindrome(str)
+        cleanedStr := preprocess(str)
+        RETURN isPalindrome(cleanedStr, 0, LENGTH(cleanedStr) - 1)
+    END_FUNCTION
+
+    // Example usage
+    string := "A man, a plan, a canal, Panama"
+    PRINT "Is \"" + string + "\" a palindrome: " + checkIfPalindrome(string)
+END

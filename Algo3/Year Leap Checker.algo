@@ -1,0 +1,13 @@
+BEGIN
+    FUNCTION isLeapYear(year)
+        IF ((year MOD 4 = 0 AND year MOD 100 ≠ 0) OR (year MOD 400 = 0)) THEN
+            RETURN True
+        ELSE
+            RETURN False
+        END_IF
+    END_FUNCTION
+
+    // Example usage
+    year := 2024
+    PRINT "Year " + year + " is a leap year: " + isLeapYear(year)
+END
